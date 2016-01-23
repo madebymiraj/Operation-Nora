@@ -1,1 +1,83 @@
 /* Custom Theme Stylesheet */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,800,700italic);
+
+body {
+	background: #011627;
+	color: #FDFFFC;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+	margin: 0px;
+}
+
+.container{
+	width: 850px;
+	height: 100vh;
+	display: flex;
+	/* flex-direction: column; */
+    align-items: center;
+    /* justify-content: center; */
+}
+
+header {
+	position: absolute;
+}
+
+header h1{
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 14px;
+	margin: 0px;
+	padding: 25px 0px;
+}
+
+section.main{
+	background: #14d686;
+	padding: 15px 0px;
+	height: 65px;
+}
+
+#article-link button{
+	background: none;
+	border: none;
+	float: right;
+	margin-top: 10px;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+#article-link .form-control {
+	background: none;
+	border: none;
+	color: #FFFFFF;
+	border-radius: 0px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+
+#article-link input{
+	font-size: 18px;
+}
+
+#article-link input::-webkit-input-placeholder {
+	color: #FFFFFF !important;
+}
+ 
+#article-link input:-moz-placeholder {
+	color: #FFFFFF !important;  
+}
+ 
+#article-link input::-moz-placeholder {  /* Firefox 19+ */
+	color: #FFFFFF !important;  
+}
+ 
+#article-link input:-ms-input-placeholder {  
+	color: #FFFFFF !important;  
+}
+
+.width-fix{
+	width: 100%;
+}
