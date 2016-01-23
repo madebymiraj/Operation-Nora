@@ -8,17 +8,18 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+::-moz-selection { background: #00171F;}
+::selection { background: #00171F; }
+
 h1, h2, h3, h4, h5, h6{
 	margin: 0px;
 }
 
 .container{
-	width: 850px;
 	height: 100vh;
 	display: flex;
-	/* flex-direction: column; */
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center; 
 }
 
 header {
@@ -34,7 +35,7 @@ header h1{
 }
 
 section.main{
-	background: #14d686;
+	background: #028090;
 	padding: 15px 0px;
 	height: 65px;
 }
@@ -45,7 +46,7 @@ section.main{
 	float: right;
 	margin-top: 10px;
 	font-size: 16px;
-	font-weight: 700;
+	font-weight: 900;
 }
 
 #article-link .form-control {
@@ -60,6 +61,7 @@ section.main{
 
 #article-link input{
 	font-size: 18px;
+	font-weight: 700;
 }
 
 #article-link input::-webkit-input-placeholder {
@@ -79,5 +81,5 @@ section.main{
 }
 
 .width-fix{
-	width: 100%;
+	width: inherit;
 }
