@@ -15,23 +15,67 @@ h1, h2, h3, h4, h5, h6{
 	margin: 0px;
 }
 
-.container{
-	height: 100vh;
+.wrapper{
+	height: 80vh;
 	display: flex;
     align-items: center;
     justify-content: center; 
 }
 
-header {
-	position: absolute;
+.navbar-default {
+    background: none;
+    border: none;
 }
 
-header h1{
-	text-transform: uppercase;
-	font-weight: 900;
-	font-size: 14px;
-	margin: 0px;
-	padding: 25px 0px;
+.navbar-brand {
+	padding: 25px 15px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FDFFFC;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.navbar-default .navbar-nav>li.social>a {
+    padding: 0px 5px;
+    margin-top: 25px;
+}
+
+.navbar-default .navbar-nav>li>a img{
+    width: 14px;
+    height: 14px;
+}
+
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #FDFFFC;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+    color: #FDFFFC;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #FDFFFC;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background: none;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+    margin-top: 20px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FDFFFC;
 }
 
 section.main{
@@ -81,5 +125,12 @@ section.main{
 }
 
 .width-fix{
-	width: inherit;
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    	background: #01101c;
+    	border: none;
+	}
 }
