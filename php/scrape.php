@@ -1,4 +1,6 @@
 <?php
+    include("simple_html_dom.php");
+    
     //$url = $_POST['url'];
     $url = "http://www.foxnews.com/politics/2016/01/23/report-bloomberg-considering-indepedent-2016-white-house-bid.html?intcmp=hpbt2";
     $return;
