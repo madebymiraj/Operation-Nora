@@ -1,5 +1,6 @@
 <?php
-    $url = $_POST['url'];
+    //$url = $_POST['url'];
+    $url = "http://www.foxnews.com/politics/2016/01/23/report-bloomberg-considering-indepedent-2016-white-house-bid.html?intcmp=hpbt2";
     $return;
     
     $pCnt = 0;
@@ -13,7 +14,7 @@
     
     $html->load_file($url);
     
-    while (strlen($return) <= 500){
+    while (strlen($return) <= 500 || $pCnt <= 2){
         $return .= $html->find('div[itemprop=articleBody] p', $pCnt);
     }
     
@@ -21,7 +22,9 @@
     
 
     $myfile = fopen($filename, "w") or die("Unable to open file!");
-    fwrite($myfile, $return);
-    fclose($myfile);
+    fwrite($filename, $return);
+    fclose($filename);
+    
+    
     
 ?>
