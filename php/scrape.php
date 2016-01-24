@@ -18,7 +18,9 @@
         $return .= $html->find('div[itemprop=articleBody] p', $pCnt);
     }
     
-    $filename = "opt/apps/webdata/nora/temp.txt";
+    $h1 = $html->find("h1", 0);
+    
+    $filename = "/home/ccastellanoit/public_html/nora/files/" . urlencode($h1) . ".txt";
     
 
     $myfile = fopen($filename, "w") or die("Unable to open file!");
