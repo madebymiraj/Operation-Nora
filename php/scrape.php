@@ -18,6 +18,7 @@
     
     while (strlen($return) <= 500 || $pCnt <= 2){
         $return .= $html->find('div[itemprop=articleBody] p', $pCnt);
+        $pCnt += 1;
     }
     
     $h1 = $html->find("h1", 0);
