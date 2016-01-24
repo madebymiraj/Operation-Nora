@@ -1,12 +1,12 @@
 //Created by EvansUX
-$("form#article-link").submit(function(){
+$("form#article-link").submit(function() {
     var data = {
-    'filename'          : $('input[name=filename]').val(),
-    };    
-    
+        'filename': $('input[name=filename]').val(),
+    };
+
     $.ajax({
-      type: "POST",
-      url: "/php/scrape.php",
-      data: data
+        type: "POST",
+        url: "/php/scrape.php",
+        data: data
     })
 });
