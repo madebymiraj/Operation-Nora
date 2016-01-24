@@ -5,7 +5,7 @@
     $url = "http://www.foxnews.com/politics/2016/01/23/report-bloomberg-considering-indepedent-2016-white-house-bid.html?intcmp=hpbt2";
     $return;
     
-    $pCnt = 0;
+    $pCnt = 1;
     
     
     if(strpos($url, "http://www.foxnews.com/") === false){
@@ -16,7 +16,7 @@
     
     $html->load_file($url);
     
-    while (strlen($return) <= 500 || $pCnt <= 2){
+    while (strlen($return) <= 500 || $pCnt <= 3){
         $return .= $html->find('div[itemprop=articleBody] p', $pCnt);
         $pCnt += 1;
     }
@@ -27,9 +27,15 @@
     
 
     $myfile = fopen($filename, "w") or die("Unable to open file!");
-    fwrite($filename, $return);
-    fclose($filename);
+    fwrite($myfile, $return);
+    fclose($myfile);
     
-    echo $return;
+    $ch = curl_init("../working/javaLoad.php");
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $filename);
+    curl_exec($ch);
+    curl_close($ch);
+
+
     
 ?>
