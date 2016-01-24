@@ -27,6 +27,6 @@
     fwrite($filename, $return);
     fclose($filename);
     
-    
+    echo $return;
     
 ?>
