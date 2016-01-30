@@ -24,7 +24,7 @@
         // Set some options - we are passing in a useragent too here
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://sentity-v1.p.mashape.com/v1/sentiment?text=' . urlencode(replaceSpacePlus($string)),
+            CURLOPT_URL => 'https://sentity-v1.p.mashape.com/v1/sentiment?text=' . urlencode(replaceSpacePlus($articleP)),
             CURLOPT_USERAGENT => 'Codular Sample cURL Request'
         ));
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
