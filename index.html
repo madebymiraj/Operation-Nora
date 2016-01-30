@@ -9,7 +9,6 @@
     <!-- Stylesheets -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/theme.css" rel="stylesheet">
-    <link href="css/animsition.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,7 +18,6 @@
 </head>
 
 <body>
-    <div class="animsition">
     <nav class="navbar navbar-default">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,15 +34,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">About Us</a></li>
-                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="#">Careers</a></li>
                     <li class="social hidden-xs">
-                        <a href="http://www.facebook.com/unfairandunbalanced" target="_blank"><img alt="Facebook" src="img/facebook.svg" /></a>
+                        <a href="#"><img alt="Facebook" src="img/facebook.svg" /></a>
                     </li>
                     <li class="social hidden-xs">
-                        <a href="http://www.twitter.com/unfairtweets" target="_blank"><img alt="Twitter" src="img/twitter.svg" /></a>
+                        <a href="#"><img alt="Twitter" src="img/twitter.svg" /></a>
                     </li>
                     <li class="social hidden-xs">
-                        <a href="http://instagram.com/unfairandunbalanced" target="_blank"><img alt="Instagram" src="img/instagram.svg" /></a>
+                        <a href="#"><img alt="Instagram" src="img/instagram.svg" /></a>
                     </li>
                 </ul>
             </div>
@@ -56,10 +54,10 @@
         <div class="row width-fix">
             <section class="main">
                 <div class="col-md-12">
-                    <form id="article-link" action="libs.html" autocomplete="off">
+                    <form id="article-link" action="libs.html"  autocomplete="off">
                         <div class="form-group">
                             <label for="placeholder-link" class="sr-only">Put a link to your shitty article here</label>
-                            <input autofocus type="text" id="placeholder-link" class="form-control" placeholder="Put a link to your shitty article here">
+                            <input autofocus name="filename" type="text" id="placeholder-link" class="form-control" placeholder="Put a link to your shitty article here">
                         </div>
                         <button type="submit">Submit Link &rarr;</button>
                     </form>
@@ -67,18 +65,10 @@
             </section>
         </div>
     </div>
-    </div>
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/animsition.js"></script>
     <script src="js/control.js"></script>
-<script>
-  $(document).ready(function() {
-    $('.animsition').animsition({
-    })
-  });
-  </script>
 </body>
 
 </html>

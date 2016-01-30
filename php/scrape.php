@@ -8,7 +8,7 @@
     
     $pCnt = 1;
     
-    
+    echo $url;
     if(strpos($url, "http://www.foxnews.com/") === false){
             exit("Fatal Error: not a fox news article");
     
@@ -16,9 +16,10 @@
     $html = new simple_html_dom();
     
     $html->load_file($url);
-    
+    echo $url;
     foreach($html->find('div[itemprop=articleBody p]') as $articleP){
-      
+      var_dump($articleP);
+      echo $url;
         // Get cURL resource
         $curl = curl_init();
         // Set some options - we are passing in a useragent too here
@@ -36,11 +37,11 @@
         // Close request to clear up some resources
         curl_close($curl);
         
-        var_dump($articleP);
-        $newSentiment = ($response->pos > $response->neg ? $response->pos : $response->neg);
-        if ($topSentiment > $newSentiment){
+        
+        //$newSentiment = ($response->pos > $response->neg ? $response->pos : $response->neg);
+        /*if ($topSentiment > $newSentiment){
             $result = $articleP;
-        }
+        }*/
     }
     
     echo $return;
