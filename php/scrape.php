@@ -8,7 +8,6 @@
     
     $pCnt = 1;
     
-    echo $url;
     if(strpos($url, "http://www.foxnews.com/") === false){
             exit("Fatal Error: not a fox news article");
     
@@ -16,13 +15,9 @@
     $html = new simple_html_dom();
     
     $html->load_file($url);
-    echo $url;
-    
-    var_dump($html->find('div[itemprop=articleBody] p'));
+
     
     foreach($html->find('div[itemprop=articleBody] p') as $articleP){
-      var_dump($articleP);
-      echo $url;
         // Get cURL resource
         $curl = curl_init();
         // Set some options - we are passing in a useragent too here
