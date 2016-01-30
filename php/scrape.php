@@ -37,11 +37,11 @@
         
         
         $newSentiment = ($response->pos > $response->neg ? $response->pos : $response->neg);
-        /*if ($topSentiment > $newSentiment){
+        if ($topSentiment > $newSentiment){
             $result = $articleP;
-        }*/
+        }
     }
-    
+    echo "script finished";
     echo $return;
 
 
