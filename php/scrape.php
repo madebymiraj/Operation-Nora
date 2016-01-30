@@ -17,7 +17,7 @@
     
     $html->load_file($url);
     
-    foreach($html->find('div[itemprop=articleBody]') as $articleP){
+    foreach($html->find('div[itemprop=articleBody p]') as $articleP){
       
         // Get cURL resource
         $curl = curl_init();
