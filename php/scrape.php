@@ -18,7 +18,7 @@
     $html->load_file($url);
     
     foreach($html->find('div[itemprop=articleBody]') as $articleP){
-        var_dump($articleP);
+      
         // Get cURL resource
         $curl = curl_init();
         // Set some options - we are passing in a useragent too here
@@ -35,9 +35,9 @@
         $response = curl_exec($curl);
         // Close request to clear up some resources
         curl_close($curl);
-        var_dump($response);
         
-        //$newSentiment = ($response["pos"] > $response["neg"] ? $response["pos"] : $response["neg"]);
+        
+        $newSentiment = ($response->pos > $response->neg ? $response->pos : $response->neg);
         if ($topSentiment > $newSentiment){
             $result = $articleP;
         }
