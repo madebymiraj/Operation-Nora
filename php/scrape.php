@@ -19,13 +19,19 @@
     
     foreach($html->find('div[itemprop=articleBody]') as $articleP){
         
-        // These code snippets use an open-source library. http://unirest.io/php
-        $response = Unirest\Request::get("https://sentity-v1.p.mashape.com/v1/sentiment?text=" . urlencode(replaceSpacePlus($string)),
-          array(
-            "X-Mashape-Key" => "JwBE6QlxDqmshDdkMdTrXoTvT2iAp125ImBjsnGT8v9IcHL6eD",
-            "Accept" => "application/json"
-          )
-        );
+        // Get cURL resource
+        $curl = curl_init();
+        // Set some options - we are passing in a useragent too here
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://sentity-v1.p.mashape.com/v1/sentiment?text=' . urlencode(replaceSpacePlus($string)),
+            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        ));
+        // Send the request & save response to $resp
+        $response = curl_exec($curl);
+        // Close request to clear up some resources
+        curl_close($curl);
+        
         
         $newSentiment = ($response["pos"] > $response["neg"] ? $response["pos"] : $response["neg"]);
         if ($topSentiment > $newSentiment){
