@@ -4,6 +4,7 @@
     //$url = $_POST['url'];
     $url = "http://www.foxnews.com/politics/2016/01/23/report-bloomberg-considering-indepedent-2016-white-house-bid.html?intcmp=hpbt2";
     $return;
+    $topSentiment;
     
     $pCnt = 1;
     
@@ -16,26 +17,27 @@
     
     $html->load_file($url);
     
-    while (strlen($return) <= 500 || $pCnt <= 3){
-        $return .= $html->find('div[itemprop=articleBody] p', $pCnt);
-        $pCnt += 1;
+    foreach($html->find('div[itemprop=articleBody]') as $articleP){
+        
+        // These code snippets use an open-source library. http://unirest.io/php
+        $response = Unirest\Request::get("https://sentity-v1.p.mashape.com/v1/sentiment?text=" . urlencode(replaceSpacePlus($string)),
+          array(
+            "X-Mashape-Key" => "JwBE6QlxDqmshDdkMdTrXoTvT2iAp125ImBjsnGT8v9IcHL6eD",
+            "Accept" => "application/json"
+          )
+        );
+        
+        $newSentiment = ($response["pos"] > $response["neg"] ? $response["pos"] : $response["neg"]);
+        if ($topSentiment > $newSentiment){
+            $result = $articleP;
+        }
     }
     
-    $h1 = $html->find("h1", 0);
-    
-    $filename = "/home/ccastellanoit/public_html/nora/files/" . urlencode($h1) . ".txt";
-    
-
-    $myfile = fopen($filename, "w") or die("Unable to open file!");
-    fwrite($myfile, $return);
-    fclose($myfile);
-    
-    $ch = curl_init("../working/javaLoad.php");
-    curl_setopt($ch, CURLOPT_POST, TRUE);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $filename);
-    curl_exec($ch);
-    curl_close($ch);
+    echo $return;
 
 
-    
+    function replaceSpacePlus($string){
+        $string=preg_replace("/ /","+",$string);
+        return $string;
+    }
 ?>
