@@ -17,7 +17,7 @@
     $html->load_file($url);
 
     
-    foreach($html->find('div[itemprop=articleBody] div.articletext p') as $articleP){
+    foreach($html->find('div[itemprop=articleBody] div.article-text p') as $articleP){
         
         echo $articleP;
         var_dump($articleP);
