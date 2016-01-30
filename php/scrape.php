@@ -27,6 +27,10 @@
             CURLOPT_URL => 'https://sentity-v1.p.mashape.com/v1/sentiment?text=' . urlencode(replaceSpacePlus($string)),
             CURLOPT_USERAGENT => 'Codular Sample cURL Request'
         ));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'X-Mashape-Key: JwBE6QlxDqmshDdkMdTrXoTvT2iAp125ImBjsnGT8v9IcHL6eD',
+            'Accept: application/json'
+            ));
         // Send the request & save response to $resp
         $response = curl_exec($curl);
         // Close request to clear up some resources
