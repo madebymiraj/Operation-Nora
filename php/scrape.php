@@ -36,7 +36,7 @@
         // Close request to clear up some resources
         curl_close($curl);
         
-        
+        var_dump($articleP);
         $newSentiment = ($response->pos > $response->neg ? $response->pos : $response->neg);
         if ($topSentiment > $newSentiment){
             $result = $articleP;
