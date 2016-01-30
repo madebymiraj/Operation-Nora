@@ -18,19 +18,19 @@
     $html->load_file($url);
     
     foreach($html->find('div[itemprop=articleBody]') as $articleP){
-        
+        var_dump($articleP);
         // Get cURL resource
         $curl = curl_init();
         // Set some options - we are passing in a useragent too here
         curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://sentity-v1.p.mashape.com/v1/sentiment?text=' . urlencode(replaceSpacePlus($articleP)),
-            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-        ));
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            CURLOPT_HTTPHEADER => array(
             'X-Mashape-Key: JwBE6QlxDqmshDdkMdTrXoTvT2iAp125ImBjsnGT8v9IcHL6eD',
-            'Accept: application/json'
-            ));
+            'Accept: application/json',
+            'Content-Type: application/json'),
+            CURLOPT_URL => 'https://sentity-v1.p.mashape.com/v1/sentiment',
+            CURLOPT_POSTFIELDS => $articleP,
+        ));
+       
         // Send the request & save response to $resp
         $response = curl_exec($curl);
         // Close request to clear up some resources
