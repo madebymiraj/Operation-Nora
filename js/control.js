@@ -10,3 +10,4 @@ $("form#article-link").submit(function() {
         data: data
     })
 });
+
