@@ -18,6 +18,9 @@
 
     
     foreach($html->find('div[itemprop=articleBody] div.articletext p') as $articleP){
+        
+        echo $articleP;
+        var_dump($articleP);
         // Get cURL resource
         $curl = curl_init();
         // Set some options - we are passing in a useragent too here
